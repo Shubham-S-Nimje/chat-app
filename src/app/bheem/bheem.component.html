@@ -1,0 +1,71 @@
+<div class="h-full flex flex-col">
+  <div
+    class="flex justify-start gap-2 border border-gray-300 items-center m-1 bg-white rounded-lg p-1 shadow"
+  >
+    <img src="/bheem.jpg" class="w-10 rounded-full" />
+    <div>
+      <p class="text-sm font-semibold">Chota Bheem</p>
+      <p class="text-xs text-green-600">Online now</p>
+    </div>
+  </div>
+
+  <!-- <div class="flex-1 gap-2 overflow-y-auto p-2">
+    <div class="flex justify-end gap-2">
+      <p class="bg-white w-fit my-2 rounded-sm px-2 py-1 shadow">
+        {{ bheemMessages }}
+      </p>
+      <img
+        src="/bheem.jpg"
+        class="w-8 self-center border shadow border-gray-300 h-fit rounded-full"
+      />
+    </div>
+    <div class="flex justify-start gap-2">
+      <img
+        src="/chutki.jpg"
+        class="w-8 self-center border shadow border-gray-300 h-fit rounded-full"
+      />
+      <p class="bg-white w-fit my-2 rounded-sm px-2 py-1 shadow">
+        {{ bheemMessages }}
+      </p>
+    </div>
+  </div> -->
+
+  <div class="flex-1 gap-2 overflow-y-auto p-2">
+    <div *ngFor="let msg of bheemMessages" class="flex justify-end gap-2">
+      <p class="bg-white w-fit my-2 rounded-sm px-2 py-1 shadow">
+        {{ msg }}
+      </p>
+      <img
+        src="/bheem.jpg"
+        class="w-8 self-center border shadow border-gray-300 h-fit rounded-full"
+      />
+    </div>
+
+    <div *ngFor="let msg of chutkiMessages" class="flex justify-start gap-2">
+      <img
+        src="/chutki.jpg"
+        class="w-8 self-center border shadow border-gray-300 h-fit rounded-full"
+      />
+      <p class="bg-white w-fit my-2 rounded-sm px-2 py-1 shadow">
+        {{ msg }}
+      </p>
+    </div>
+  </div>
+
+  <div
+    class="p-2 flex items-center gap-2 border-t border-gray-300 bg-white rounded-lg"
+  >
+    <input
+      type="text"
+      [(ngModel)]="bheemMessage"
+      class="w-full rounded-lg px-3 py-1 text-sm focus:outline-none focus:ring focus:ring-[#014691]"
+      placeholder="Type a message..."
+    />
+    <button
+      (click)="send()"
+      class="bg-[#014691] cursor-pointer text-white px-3 py-1 rounded-lg hover:bg-green-600"
+    >
+      Send
+    </button>
+  </div>
+</div>
